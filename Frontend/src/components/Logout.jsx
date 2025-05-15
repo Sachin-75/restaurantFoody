@@ -1,18 +1,22 @@
 import React from 'react'
 import { useAuth } from '../context/AuthProvider'
 import toast from 'react-hot-toast';
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
     const [authUser, setAuthUser] = useAuth();
+    const navigate = useNavigate();
     const handleLogout = () => {
         try {
             setAuthUser({
                 ...authUser,
                 token: null
             });
-            localStorage.removeItem("token")
+            Cookies.remove('token');
             toast.success("Logout Successfully");
             window.location.reload();
+            navigate('/')
             setTimeout(() => {
                 
             }, 3000);

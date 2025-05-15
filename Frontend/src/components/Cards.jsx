@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { FaHeart } from "react-icons/fa";
 import axios from 'axios'; 
 import { useAuth } from '../context/AuthProvider';
+import apiRequest from '../utils/Service';
+import toast from 'react-hot-toast'
 
-const Cards = ({ item }) => {
+const Cards = ({ item, apiCallRequest=null }) => {
     const [heartfill, setHeartfill] = useState(false);
     const [ authUser ] = useAuth(); 
 
@@ -29,22 +31,21 @@ const Cards = ({ item }) => {
 
                 const token = localStorage.getItem("token");
 
-                const res = await axios.post("http://localhost:5000/api/cart/add", cartItem, {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
+                const res = await apiRequest({
+                    method: 'POST',
+                    url: '/cart/add',
+                    data: cartItem
                 });
 
                 if(res.status==200){
-                    console.log('Item added to cart successfully:');
+                    toast.success('Item added to cart successfully');
+                    apiCallRequest();
                 } else {
-                    console.log("Not Added");
-                    
+                    toast.warn("Not Added");
                 }
 
             } catch (error) {
                 console.log("Error encountered is ",error);
-                
             }
 
             

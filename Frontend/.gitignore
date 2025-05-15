@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Project files and directories to ignore
+package.json
+package-lock.json
+README.MD
+dishes_menu.json
+Backend/

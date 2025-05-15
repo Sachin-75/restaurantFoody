@@ -62,7 +62,7 @@ const Signup = () => {
                                     type="text"
                                     placeholder="Enter your name"
                                     {...register("name", { required: true })}
-                                    className="w-full px-4 py-2 md:py-3 outline-none border rounded-md text-base md:text-lg" />
+                                    className="w-full px-4 py-2 md:py-3 outline-none border text-black dark:text-black rounded-md text-base md:text-lg" />
                                 <br />
                                 {errors.name && (
                                     <span className="text-sm text-red-500">This field required</span>
@@ -75,9 +75,9 @@ const Signup = () => {
                                     type="email"
                                     placeholder="Enter your email"
                                     {...register("email", { required: true })}
-                                    className="w-full px-4 py-2 md:py-3 outline-none border rounded-md text-base md:text-lg" />
+                                    className="w-full px-4 py-2 md:py-3 outline-none text-black dark:text-black border rounded-md text-base md:text-lg" />
                                 <br />
-                                {errors.name && (
+                                {errors.email && (
                                     <span className="text-sm text-red-500">This field required</span>
                                 )}
                             </div>
@@ -88,7 +88,7 @@ const Signup = () => {
                                     type="password"
                                     placeholder="Enter your password"
                                     {...register("password", { required: true })}
-                                    className="w-full px-4 py-2 md:py-3 outline-none border rounded-md text-base md:text-lg" /> {/* Responsive text size and padding */}
+                                    className="w-full px-4 py-2 md:py-3 outline-none text-black dark:text-black border rounded-md text-base md:text-lg" /> {/* Responsive text size and padding */}
                                 <br />
                                 {errors.name && (
                                     <span className="text-sm text-red-500">This field required</span>

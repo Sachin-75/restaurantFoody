@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import Cookies from "js-cookie";
 
 export const AuthContext=createContext()
 export default function AuthProvider({children}){
@@ -11,9 +12,11 @@ export default function AuthProvider({children}){
     const [authUser, setAuthUser] = useState(null);
 
     useEffect(() => {
-        const initialAuthUser = localStorage.getItem("token");
+        const initialAuthUser = Cookies.get("token");
         if (initialAuthUser) {
             setAuthUser(initialAuthUser);
+        } else {
+            setAuthUser(null)
         }
     }, []);
 

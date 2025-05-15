@@ -13,7 +13,7 @@ const Dishes = () => {
     const getFood = async () => {
       try {
         // Fetch data using axios
-        const res = await axios.get("https://restaurantweb-q5fl.onrender.com/api/food");
+        const res = await axios.get("http://localhost:5000/api/food");
         
         // Access the response data
         const data = res.data;
