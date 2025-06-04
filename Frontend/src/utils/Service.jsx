@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie'
 const BASE_URL = 'http://localhost:5000/api';
+// const BASE_URL = 'https://restaurantweb-q5fl.onrender.com/api';
 
 const apiRequest = async ({ method = 'GET', url, data = {}, params = {}, headers = {} }) => {
     const token = Cookies.get("token");
