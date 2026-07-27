@@ -1,7 +1,19 @@
 import React from 'react';
 import hero from "/Images/hero.png";
+import { useAuth } from '../context/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const Banner = () => {
+    const [authUser] = useAuth();
+    const navigate = useNavigate();
+    const handlePopUp = () => {
+        if (!authUser) {
+            alert("Please log in to add items to the cart.");
+            return;
+        } else {
+            navigate("/menu",{replace:true})
+        }
+    }
     return (
         <>
             <div className='max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col-reverse md:flex-row items-center overflow-hidden md:mt-0 mt-10'>
@@ -13,7 +25,7 @@ const Banner = () => {
                         <p className="text-xl ">
                             Where Each Plate Weaves a Story of Culinary Mastery and Passionate Craftsmanship
                         </p>
-                        <button className="btn btn-active bg-orange-500 hover:bg-orange-400 text-orange-50 text-[18px] rounded-full ">Order Now</button>
+                        <button className="btn btn-active bg-orange-500 hover:bg-orange-400 text-orange-50 text-[18px] rounded-full " onClick={handlePopUp} >Order Now</button>
                     </div>
                 </div>
                 <div className="w-full md:w-1/2">
