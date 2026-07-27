@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import axios from "axios";
 import Cards from "./Cards";
+import apiRequest from '../utils/Service';
 
 const Dishes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -13,7 +14,11 @@ const Dishes = () => {
     const getFood = async () => {
       try {
         // Fetch data using axios
-        const res = await axios.get("http://localhost:5000/api/food");
+        // const res = await axios.get("http://localhost:5000/api/food");
+        const res = await apiRequest({
+          method: 'GET',
+          url: '/food'
+        });
         
         // Access the response data
         const data = res.data;

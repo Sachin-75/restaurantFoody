@@ -16,7 +16,7 @@ const ForgetPass = () => {
     const onSubmit = async (data) => {
         let email = data.email
         try {
-            const response = await axios.post("http://localhost:5000/api/auth/forgetpass",{email})
+            const response = await axios.post("https://restaurantweb-q5fl.onrender.com/api/auth/forgetpass",{email})
             console.log(response.data)
         } catch (error) {
             console.log("error",error)

@@ -18,7 +18,7 @@ const ResetPass = () => {
     const onSubmit = async (data) => {
         let password = data.password
         try {
-            const response = await axios.post(`http://localhost:5000/api/auth/resetPass/${token}`, { password })
+            const response = await axios.post(`https://restaurantweb-q5fl.onrender.com/api/auth/resetPass/${token}`, { password })
             console.log(response.data)
             if(response.data.reset=='0'){
                 toast.success("Password updated Successfully");

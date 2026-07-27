@@ -19,7 +19,7 @@ const Contact = () => {
             msg: data.msg
         };
 
-        await axios.post("http://localhost:5000/api/form/contact", userInfo)
+        await axios.post("https://restaurantweb-q5fl.onrender.com/api/form/contact", userInfo)
             .then((res) => {
                 console.log(res.data);
                 if (res.data.success) {
